@@ -19,7 +19,7 @@ function findId(id) {
 router.get("/", (req, res, next) => {
   const item = findId(req.query.id);
   item.value++;
-  res.json(items);
+  res.json(item);
 });
 
 module.exports = router;
