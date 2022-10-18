@@ -11,13 +11,18 @@
     "dev": "nodemon ./index.js"
   },
   "dependencies": {
+    "201flaviosilva-utils": "^1.2.9",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   },
   "keywords": [],
   "repository": {
@@ -27,7 +32,12 @@
   "bugs": {
     "url": "https://github.com/201flaviosilva-labs/201flaviosilva-api/issues"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
+  "nodemonConfig": {
+    "ext": "js",
+    "ignore": [
+      "*.test.ts",
+      "db/*"
+    ],
+    "delay": 2
   }
 }

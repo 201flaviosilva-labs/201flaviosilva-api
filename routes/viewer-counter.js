@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { v4: uuidv4 } = require('uuid');
 
-const items = []; // {id: "beep", value: 10}
+const items = []; // {id:"beep", value:10}
 
 function findId(id) {
   const item = items.find(i => i.id === id);
