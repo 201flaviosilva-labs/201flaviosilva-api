@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
 const indexRouter = require("./routes/index");
-const viewerCountRouter = require("./routes/viewer-count");
+const viewerCounterRouter = require("./routes/viewer-counter");
 
 const app = express();
 const port = process.env.PORT || 5001;
@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/viewer-count", viewerCountRouter);
+app.use("/viewer-counter", viewerCounterRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
