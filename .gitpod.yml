@@ -1,0 +1,5 @@
+image: node:16
+
+tasks:
+  - init: npm install
+    command: npm run dev

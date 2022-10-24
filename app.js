@@ -5,8 +5,9 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
 
+// Routes
 const indexRouter = require("./routes/index");
-const viewerCounterRouter = require("./routes/viewer-counter");
+const { viewerCounter: viewerCounterRouter, v1: viewerCounterV1Router, } = require("./routes/viewerCounter/index");
 
 const app = express();
 
@@ -21,9 +22,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public"))); // Publish public files
 
+// ------------------------------------
+// ------------ Routes ----------------
+// ------------------------------------
 app.use("/", indexRouter);
-app.use("/viewer-counter", viewerCounterRouter);
 
+// Viewer Counter
+app.use("/viewer-counter", viewerCounterRouter);
+app.use("/viewer-counter-v1", viewerCounterV1Router);
+
+
+// ------------------------------------
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404));
